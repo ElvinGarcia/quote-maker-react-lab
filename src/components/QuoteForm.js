@@ -7,14 +7,17 @@ import { addQuote } from '../actions/quotes';
 class QuoteForm extends Component {
 
   state = {
-    //set up a controlled form with internal state
+    qoute: '',
+    author: ''
   }
 
   handleOnChange = event => {
+    this.setState()
     // Handle Updating Component State
   }
 
   handleOnSubmit = event => {
+
     // Handle Form Submit event default
     // Create quote object from state
     // Pass quote object to action creator
@@ -33,7 +36,7 @@ class QuoteForm extends Component {
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
-                        className="form-control"
+                        className="form-control" name="content"
                         value={this.state.content}
                       />
                     </div>
@@ -42,7 +45,7 @@ class QuoteForm extends Component {
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
-                        className="form-control"
+                        className="form-control" name="author"
                         type="text"
                         value={this.state.author}
                       />
