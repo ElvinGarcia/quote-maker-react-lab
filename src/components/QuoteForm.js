@@ -32,12 +32,12 @@ class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onChange={event => this.handleOnChange(event)}>
                   <div className="form-group">
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
-                        className="form-control" name="content" onChange={event =>  this.handleOnChange(event) }
+                        className="form-control" name="content"
                         value={this.state.content}
                       />
                     </div>
@@ -45,11 +45,8 @@ class QuoteForm extends Component {
                   <div className="form-group">
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
-                      <input
-                        className="form-control" name="author" onChange={event => this.handleOnChange(event)}
-                        type="text"
-                        value={this.state.author}
-                      />
+                      <input className="form-control" name="author" type="text"
+                        value={this.state.author} />
                     </div>
                   </div>
                   <div className="form-group">
