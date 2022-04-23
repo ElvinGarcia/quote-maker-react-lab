@@ -3,21 +3,22 @@ import { connect } from 'react-redux';
 import uuid from 'uuid';
 
 import { addQuote } from '../actions/quotes';
+import reducers from '../reducers';
 
 class QuoteForm extends Component {
 
   state = {
-    qoute: '',
+    content: '',
     author: ''
   }
 
   handleOnChange = event => {
-    this.setState()
     // Handle Updating Component State
+    this.setState( { [event.target.name] : event.target.value  });
   }
 
   handleOnSubmit = event => {
-
+  //  event.preventDefault() and send the state along with the dispath to the reducers. I don't know how to do that yet
     // Handle Form Submit event default
     // Create quote object from state
     // Pass quote object to action creator
@@ -36,7 +37,7 @@ class QuoteForm extends Component {
                     <label htmlFor="content" className="col-md-4 control-label">Quote</label>
                     <div className="col-md-5">
                       <textarea
-                        className="form-control" name="content"
+                        className="form-control" name="content" onChange={event =>  this.handleOnChange(event) }
                         value={this.state.content}
                       />
                     </div>
@@ -45,7 +46,7 @@ class QuoteForm extends Component {
                     <label htmlFor="author" className="col-md-4 control-label">Author</label>
                     <div className="col-md-5">
                       <input
-                        className="form-control" name="author"
+                        className="form-control" name="author" onChange={event => this.handleOnChange(event)}
                         type="text"
                         value={this.state.author}
                       />
@@ -66,5 +67,6 @@ class QuoteForm extends Component {
   }
 }
 
+// pass the state and dispatch as props to the class. I don't remenber how to do that yer
 //add arguments to connect as needed
 export default connect()(QuoteForm);
