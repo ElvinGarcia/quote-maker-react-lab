@@ -11,7 +11,7 @@ class App extends Component {
         </div>
         <hr />
         <QuoteForm />
-        <Quotes />
+        <Quotes quotes={''/*suppose to pass in qoutes as a props*/ }/>
       </div>
     );
   }

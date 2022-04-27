@@ -8,7 +8,7 @@ class Quotes extends Component {
     return (
       <div>
         <hr />
-        <div className="row justify-content-center">
+        <div className="row justify-content-center">s
           <h2>Quotes</h2>
         </div>
         <hr />

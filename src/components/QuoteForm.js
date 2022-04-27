@@ -18,7 +18,8 @@ class QuoteForm extends Component {
   }
 
   handleOnSubmit = event => {
-  //  event.preventDefault() and send the state along with the dispath to the reducers. I don't know how to do that yet
+   event.preventDefault()
+  // and send the state along with the dispath to the reducers.I don't know how to do that yet
     // Handle Form Submit event default
     // Create quote object from state
     // Pass quote object to action creator
