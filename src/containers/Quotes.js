@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuoteCard from '../components/QuoteCard';
+import {upvote,downvote,deleteQuote} from '../reducers/quotes'
 
 class Quotes extends Component {
 
@@ -15,7 +16,8 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <QuoteCard/>
+          {this.props.quotes.map(quote => <QuoteCard quote={quote} upvote={upvote} downvote={downvote} deleteQuote={deleteQuote} key={quote.id}/> )}
+
               {/*
                 TODO:
 
@@ -30,4 +32,9 @@ class Quotes extends Component {
 }
 
 //add arguments to connect as needed
-export default connect()(Quotes);
+function mapStateToProps(state) {
+  return ( {quotes: state.quotes} )
+}
+export default connect(mapStateToProps, {upvote,downvote,deleteQuote})(Quotes);
+
+

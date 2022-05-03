@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import uuid from 'uuid';
-
+import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
-import reducers from '../reducers';
+
 
 class QuoteForm extends Component {
 
@@ -18,11 +17,10 @@ class QuoteForm extends Component {
   }
 
   handleOnSubmit = event => {
-  //  event.preventDefault() and send the state along with the dispath to the reducers. I don't know how to do that yet
-    // Handle Form Submit event default
-    // Create quote object from state
-    // Pass quote object to action creator
-    // Update component state to return to default state
+    // Handles Submitions to Reducer
+    event.preventDefault()
+    this.props.addQuote({ ...this.state, id: uuid(), votes: 0 });
+    this.setState({ content: '', author: '' });
   }
 
   render() {
@@ -32,13 +30,14 @@ class QuoteForm extends Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="form-horizontal" onChange={event => this.handleOnChange(event)}>
+                <form className="form-horizontal" onChange={event => this.handleOnChange(event)} onSubmit={this.handleOnSubmit}>
                   <div className="form-group">
-                    <label htmlFor="content" className="col-md-4 control-label">Quote</label>
+                    <label htmlFor="content" className="col-md-4 control-label" >Quote</label>
                     <div className="col-md-5">
                       <textarea
                         className="form-control" name="content"
                         value={this.state.content}
+                        autoFocus
                       />
                     </div>
                   </div>
@@ -66,4 +65,5 @@ class QuoteForm extends Component {
 
 // pass the state and dispatch as props to the class. I don't remenber how to do that yer
 //add arguments to connect as needed
-export default connect()(QuoteForm);
+
+export default connect(null,{addQuote})(QuoteForm);
