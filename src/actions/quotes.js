@@ -6,20 +6,26 @@ export const addQuote = (quote) => {
    };
   };
 
-export const removeQuote = (obj) =>{
-  return{
+export const upvoteQuote = (quote) => {
+  console.log("Dispatch's upvote was trigger", quote)
+  return {
+    type: 'UPVOTE_QUOTE',
+    quote
+  };
+};
 
+
+export const removeQuote = (quote) =>{
+  return{
+    type: 'REMOVE_QUOTE',
+    quote
   }
 };
 
-export const upvoteQuote = (obj) =>{
+
+export const downvoteQuote = (quote) =>{
   return{
-
-  }
-};
-
-export const downvoteQuote = (obj) =>{
-  return{
-
+    type: 'DOWNVOTE_QUOTE',
+    quote
   }
 };
