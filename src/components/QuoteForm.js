@@ -63,7 +63,6 @@ class QuoteForm extends Component {
   }
 }
 
-// pass the state and dispatch as props to the class. I don't remenber how to do that yer
-//add arguments to connect as needed
+
 
 export default connect(null,{addQuote})(QuoteForm);
