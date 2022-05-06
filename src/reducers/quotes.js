@@ -17,11 +17,14 @@ export default (state = [], action) => {
     case 'DOWNVOTE_QUOTE':
       index = state.findIndex(quote => quote.id === action.quoteId);
       quote = state[index];
+      if(quote.votes){
       return [
         ...state.slice(0, index),
         Object.assign({}, quote, { votes: quote.votes - 1 }),
         ...state.slice(index + 1)
       ];
+      }
+      return state
 
     case 'REMOVE_QUOTE':
       return state.filter((quote) => quote.id !== action.quoteId);
