@@ -7,7 +7,6 @@ export const addQuote = (quote) => {
   };
 
 export const upvoteQuote = (quote) => {
-  console.log("Dispatch's upvote was trigger", quote)
   return {
     type: 'UPVOTE_QUOTE',
     quote
@@ -15,7 +14,8 @@ export const upvoteQuote = (quote) => {
 };
 
 
-export const removeQuote = (quote) =>{
+export const removeQuote = (quote) => {
+  console.log("Dispatch's removeQuote was trigger", quote)
   return{
     type: 'REMOVE_QUOTE',
     quote
@@ -23,7 +23,8 @@ export const removeQuote = (quote) =>{
 };
 
 
-export const downvoteQuote = (quote) =>{
+export const downvoteQuote = (quote) => {
+  console.log("Dispatch's downvoteQuote was trigger", quote)
   return{
     type: 'DOWNVOTE_QUOTE',
     quote
