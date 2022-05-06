@@ -15,7 +15,6 @@ export const upvoteQuote = (quote) => {
 
 
 export const removeQuote = (quote) => {
-  console.log("Dispatch's removeQuote was trigger", quote)
   return{
     type: 'REMOVE_QUOTE',
     quote

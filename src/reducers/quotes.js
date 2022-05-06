@@ -1,12 +1,13 @@
 export default (state = [], action) => {
-
+  let index
+  let quote
   switch (action.type) {
     case 'ADD_QUOTE':
       return [...state, action.quote];
 
     case 'UPVOTE_QUOTE':
-      let index = state.findIndex(quote => quote.id === action.quote.id);
-      let quote = state[index];
+       index = state.findIndex(quote => quote.id === action.quote.id);
+       quote = state[index];
         return [
           ...state.slice(0, index),
           Object.assign({}, quote, { votes: quote.votes += 1 }),
@@ -18,6 +19,8 @@ export default (state = [], action) => {
 
 
     case 'DOWNVOTE_QUOTE':
+       index = state.findIndex(quote => quote.id === action.quote.id);
+       quote = state[index];
       return [
         ...state.slice(0, index),
         Object.assign({}, quote, { votes: quote.votes-1 }),
