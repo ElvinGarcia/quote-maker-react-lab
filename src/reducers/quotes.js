@@ -6,7 +6,7 @@ export default (state = [], action) => {
       return [...state, action.quote];
 
     case 'UPVOTE_QUOTE':
-      index = state.findIndex(quote => quote.id === action.quoteId.id);
+      index = state.findIndex(quote => quote.id === action.quoteId);
       quote = state[index];
       return [
         ...state.slice(0, index),
@@ -15,7 +15,7 @@ export default (state = [], action) => {
       ];
 
     case 'DOWNVOTE_QUOTE':
-      index = state.findIndex(quote => quote.id === action.quoteId.id);
+      index = state.findIndex(quote => quote.id === action.quoteId);
       quote = state[index];
       return [
         ...state.slice(0, index),
@@ -24,8 +24,7 @@ export default (state = [], action) => {
       ];
 
     case 'REMOVE_QUOTE':
-      return state.filter((quote) => quote.id !== action.quoteId.id);
-
+      return state.filter((quote) => quote.id !== action.quoteId);
 
     default:
       return state;
