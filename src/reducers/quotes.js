@@ -1,9 +1,17 @@
-export default (state = [], action) => {
+import uuid from 'uuid';
+export function quotesReducer(state = [],action){
   let index
   let quote
   switch (action.type) {
     case 'ADD_QUOTE':
-      return [...state, action.quote];
+      quote = state.find((quote) => quote.author === action.quote.author)
+      if (quote) {
+        action.quote.author_id = quote.author_id
+        return [...state, action.quote ]
+      } else {
+        action.quote.author_id = uuid();
+        return [...state, action.quote];
+      }
 
     case 'UPVOTE_QUOTE':
       index = state.findIndex(quote => quote.id === action.quoteId);
@@ -35,3 +43,5 @@ export default (state = [], action) => {
     }
 
   }
+
+

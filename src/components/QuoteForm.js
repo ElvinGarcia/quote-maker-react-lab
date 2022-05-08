@@ -19,7 +19,7 @@ class QuoteForm extends Component {
   handleOnSubmit = event => {
     // Handles Submitions to Reducer
     event.preventDefault()
-    this.props.addQuote({ ...this.state, id: uuid(), votes: 0 });
+    this.props.addQuote({ ...this.state, id: uuid(), author_id:'', votes: 0 });
     this.setState({ content: '', author: '' });
   }
 

@@ -17,6 +17,7 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
+
 {quotes.map(quote => <QuoteCard quote={quote} upvoteQuote={upvoteQuote} downvoteQuote={downvoteQuote} removeQuote={removeQuote} key={quote.id}/> )}
 
             </div>
